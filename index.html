@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Currículum de Camino Núñez Cárdenas, estudiante de Trabajo Social.">
+  <title>Camino Núñez Cárdenas | Curriculum Vitae</title>
+  <style>
+    :root {
+      /* Blanco limpio para la columna de identidad y las secciones del currículum. */
+      --color-fondo: #FFFFFF;
+      /* Verde salvia apagado para el panel del retrato y los detalles. */
+      --color-salvia: #8FA399;
+      /* Negro profundo para títulos, texto y el botón principal. */
+      --color-texto: #111111;
+      /* Blanco puro para el texto sobre el botón oscuro. */
+      --color-texto-boton: #FFFFFF;
+      /* Gris claro neutro para el fondo alrededor de la fotografía. */
+      --color-fondo-foto: #E2E4E6;
+      /* Gris verdoso oscuro para texto secundario sobre fondos claros. */
+      --color-texto-secundario: #4B5952;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--color-texto);
+      background: var(--color-fondo);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 1;
+      inset: 0 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem clamp(1.5rem, 5vw, 5rem);
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: clamp(1rem, 2.4vw, 2.5rem);
+      font-size: 0.85rem;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+    }
+
+    .button {
+      justify-self: end;
+      display: inline-block;
+      padding: 0.8rem 1.25rem;
+      color: var(--color-texto-boton);
+      background: #000000;
+      text-decoration: none;
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: #303030;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem clamp(2rem, 8vw, 8rem) 4rem clamp(2rem, 8vw, 8rem);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.8rem;
+      color: var(--color-texto-secundario);
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 9ch;
+      margin-bottom: 0.45rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 6vw, 6.4rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    .profession {
+      margin: 0;
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+    }
+
+    .location {
+      margin: 0.45rem 0 0;
+      color: var(--color-texto-secundario);
+      font-size: 0.9rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.35rem;
+      margin: 2rem 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-list strong {
+      font-weight: 700;
+    }
+
+    .about-intro {
+      max-width: 34rem;
+      margin: 2rem 0 0;
+      color: var(--color-texto-secundario);
+    }
+
+    .scroll-link {
+      align-self: flex-start;
+      margin-top: 2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .scroll-link:hover,
+    .scroll-link:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+    }
+
+    .hero-photo {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      padding: 7rem clamp(1.5rem, 6vw, 6rem) 3rem;
+      background: var(--color-salvia);
+    }
+
+    .hero-photo img {
+      display: block;
+      width: min(100%, 29rem);
+      max-height: 72vh;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      background: var(--color-fondo-foto);
+    }
+
+    .resume {
+      padding: clamp(4rem, 9vw, 8rem) clamp(1.5rem, 9vw, 9rem);
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(3rem, 8vw, 8rem);
+      max-width: 75rem;
+      margin: 0 auto;
+    }
+
+    .resume-section {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(17, 17, 17, 0.24);
+      scroll-margin-top: 2rem;
+    }
+
+    .resume-section h2 {
+      margin-bottom: 1.6rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .entry + .entry {
+      margin-top: 1.8rem;
+    }
+
+    .entry h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .entry p,
+    .resume-section > p {
+      margin: 0;
+      color: var(--color-texto-secundario);
+    }
+
+    .entry .date {
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+    }
+
+    .detail-list,
+    .skills-list {
+      display: grid;
+      gap: 0.6rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .detail-list li,
+    .skills-list li {
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .site-footer {
+      padding: 1.5rem;
+      background: var(--color-salvia);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        position: relative;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+        background: var(--color-fondo);
+      }
+
+      .site-title {
+        font-size: 1.05rem;
+      }
+
+      .site-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding-top: 0.5rem;
+      }
+
+      .button {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0.7rem 0.9rem;
+        font-size: 0.78rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-copy {
+        padding: 4rem 1.5rem 3.5rem;
+      }
+
+      h1 {
+        max-width: 10ch;
+        font-size: clamp(3.2rem, 15vw, 5.2rem);
+      }
+
+      .hero-photo {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .hero-photo img {
+        width: min(100%, 24rem);
+        max-height: none;
+      }
+
+      .resume {
+        padding: 3.5rem 1.5rem;
+      }
+
+      .resume-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .scroll-link {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-copy {
+        padding: 2rem;
+      }
+
+      .hero-photo {
+        padding: 2rem;
+      }
+
+      .resume {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="site-title">Curriculum Vitae</p>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="#sobre-mi">acerca de</a>
+      <a href="#experiencia">CV</a>
+      <a href="#contacto">contacto</a>
+    </nav>
+    <a class="button" href="index.html" download="Camino-Nunez-Cardenas-CV.html">Descargar CV</a>
+  </header>
+
+  <main>
+    <!-- ===== PRESENTACIÓN ===== -->
+    <section class="hero" aria-labelledby="nombre">
+      <div class="hero-copy">
+        <p class="eyebrow">Curriculum Vitae</p>
+        <h1 id="nombre">Camino Núñez Cárdenas</h1>
+        <p class="profession">Estudiante de Trabajo Social</p>
+        <p class="location">Puerto de Santa María</p>
+
+        <ul class="contact-list" id="contacto">
+          <li><strong>Teléfono:</strong> <a href="tel:611487910">611487910</a></li>
+          <li><strong>Email:</strong> <a href="mailto:caminonunez1@gmail.com">caminonunez1@gmail.com</a></li>
+          <li><strong>Ubicación:</strong> Puerto de Santa María</li>
+        </ul>
+
+        <p class="about-intro">Responsable, empática y organizada, con facilidad para el trabajo en equipo y muchas ganas de seguir aprendiendo y desarrollándome profesionalmente.</p>
+        <a class="scroll-link" href="#experiencia">Ver CV <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-photo">
+        <img src="imagenes/foto.jpg" alt="Retrato de Camino Núñez Cárdenas">
+      </div>
+    </section>
+    <!-- ===== FIN: PRESENTACIÓN ===== -->
+
+    <div class="resume" id="cv">
+      <div class="resume-grid">
+        <!-- ===== SOBRE MÍ ===== -->
+        <section class="resume-section" id="sobre-mi">
+          <h2>Sobre mí</h2>
+          <p>Estudiante de Trabajo Social con experiencia en limpieza hospitalaria y atención a las personas. Responsable, empática y organizada, con facilidad para el trabajo en equipo y muchas ganas de seguir aprendiendo y desarrollándome profesionalmente.</p>
+        </section>
+        <!-- ===== FIN: SOBRE MÍ ===== -->
+
+        <!-- ===== FORMACIÓN ===== -->
+        <section class="resume-section" id="formacion">
+          <h2>Formación</h2>
+          <div class="entry">
+            <h3>Grado en Trabajo Social</h3>
+            <p class="date">Actualmente</p>
+            <p>Estudiante universitaria, Campus de Jerez.</p>
+          </div>
+          <div class="entry">
+            <h3>Bachillerato</h3>
+            <p class="date">2021-2023</p>
+            <p>IES Mar de Cádiz.</p>
+          </div>
+          <div class="entry">
+            <h3>Educación Secundaria Obligatoria</h3>
+            <p class="date">2017-2021</p>
+            <p>IES Mar de Cádiz.</p>
+          </div>
+        </section>
+        <!-- ===== FIN: FORMACIÓN ===== -->
+
+        <!-- ===== EXPERIENCIA ===== -->
+        <section class="resume-section" id="experiencia">
+          <h2>Experiencia</h2>
+          <div class="entry">
+            <h3>Empleada de limpieza</h3>
+            <p class="date">Julio 2025 / septiembre de 2025</p>
+            <p>Hospital Pascual, Puerto de Santa María, Cádiz.</p>
+          </div>
+          <div class="entry">
+            <h3>Empleada de limpieza</h3>
+            <p class="date">Julio 2024 / septiembre de 2024</p>
+            <p>Hospital Pascual, Puerto de Santa María, Cádiz.</p>
+          </div>
+        </section>
+        <!-- ===== FIN: EXPERIENCIA ===== -->
+
+        <!-- ===== HABILIDADES ===== -->
+        <section class="resume-section">
+          <h2>Habilidades</h2>
+          <ul class="skills-list">
+            <li>Trabajo en equipo</li>
+            <li>Gran capacidad de aprendizaje</li>
+            <li>Resolución de problemas</li>
+            <li>Empatía</li>
+            <li>Responsabilidad</li>
+            <li>Organización</li>
+          </ul>
+        </section>
+        <!-- ===== FIN: HABILIDADES ===== -->
+
+        <!-- ===== VOLUNTARIADO Y DISPONIBILIDAD ===== -->
+        <section class="resume-section">
+          <h2>Voluntariado y disponibilidad</h2>
+          <ul class="detail-list">
+            <li>Voluntariado en Cruz Roja: atención y acompañamiento a personas mayores.</li>
+            <li>Disponibilidad total.</li>
+            <li>Disponibilidad inmediata.</li>
+          </ul>
+        </section>
+        <!-- ===== FIN: VOLUNTARIADO Y DISPONIBILIDAD ===== -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Camino Núñez Cárdenas · Puerto de Santa María
+  </footer>
+</body>
+</html>
